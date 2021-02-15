@@ -1,0 +1,17 @@
+name: 'Common Lisp Rove Run'
+description: 'Runs rove tests on Common Lisp project'
+runs:
+  using: "composite"
+  steps:
+    - id: install-roswell-dependencies
+      run: sudo apt-get -y install curl libcurl3-gnutls make
+      shell: bash
+    - id: download-and-install-roswell
+      run: curl -L https://github.com/roswell/roswell/releases/download/v19.08.10.101/roswell_19.08.10.101-1_amd64.deb --output roswell.deb && sudo dpkg -i roswell.deb
+      shell: bash
+    - id: setup-roswell
+      run: ros install sbcl-bin && ros install rove
+      shell: bash
+    - id: run-rove-tests
+      run: ./tests/run-tests.sh
+      shell: bash
