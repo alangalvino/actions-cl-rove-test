@@ -13,5 +13,5 @@ runs:
       run: ros install sbcl-bin && ros install rove
       shell: bash
     - id: run-rove-tests
-      run: ./run-tests.sh
+      run: ${{ github.action_path }}/run-tests.sh
       shell: bash
