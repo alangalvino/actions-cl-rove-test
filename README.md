@@ -1,2 +1,3 @@
-# actions-cl-rove-test
-Runs Common Lisp tests using rove library
+# Github Actions Common Lisp Rove Tests
+
+Runs Common Lisp tests using Rove library
